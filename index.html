@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puddle Pop Dance!</title>
+  <style>
+    body { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); text-align: center; font-family: 'Comic Neue', cursive; padding: 20px; margin: 0; }
+    .monster { font-size: 2.5em; margin: 20px; animation: bounce 1s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+    img { width: 200px; border-radius: 50%; border: 5px solid white; box-shadow: 0 0 20px #fff; margin: 10px; }
+    .dance-gif { width: 300px; border-radius: 20px; box-shadow: 0 0 30px #ffeb3b; margin: 20px; }
+    button { background: #ff6b6b; color: white; border: none; padding: 15px 30px; font-size: 18px; border-radius: 10px; cursor: pointer; margin: 10px; }
+    button:hover { background: #ff5252; }
+    h1 { color: white; text-shadow: 0 0 10px #000; }
+    h3 { color: gold; text-shadow: 0 0 10px #000; }
+  </style>
+</head>
+<body>
+  <h1>🎉 YOU SCANNED PUDDLE POP!</h1>
+  <div class="monster">
+    <img src="YOUR_MONSTER_IMAGE_LINK" alt="Puddle Pop">
+    <p>Hit the button → WATCH ME DANCE!</p>
+  </div>
+  <button onclick="startDance()">DANCE! 💃</button>
+  <div id="dance"></div>
 
+  <script>
+    function startDance() {
+      const dances = [
+        "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+        "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif",
+        "https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif"
+      ];
+      const randomDance = dances[Math.floor(Math.random() * dances.length)];
+      const chance = Math.random();
+      let prize = '';
+      if (chance < 0.01) {
+        prize = '<h3>PERFECT DANCE! 🎉 Code: PERFECT5 ($5 OFF!)</h3>';
+      }
+      document.getElementById('dance').innerHTML = `
+        ${prize}
+        <img src="${randomDance}" class="dance-gif">
+        <p style="color:white;">Share on TikTok! #PerfectDanceWin</p>
+      `;
+    }
+  </script>
+</body>
+</html>
